@@ -37,6 +37,7 @@ void Update()
     // 弾の発射
     if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
         bulletPos = cannonPos + Vector2(50, 10);
+        PlaySound("se_maoudamashii_explosion03.mp3");
     }
 
     // 弾の移動
@@ -47,6 +48,7 @@ void Update()
         Rect bulletRect(bulletPos, Vector2(32, 20));
         if (targetRect.Overlaps(bulletRect)) {
             score += 100;         // スコアの加算
+            PlaySound("se_maoudamashii_explosion06.mp3");
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
         }
     }
